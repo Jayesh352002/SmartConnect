@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import {  Observable, throwError } from 'rxjs';
 import { Root } from '../model/contacts.model';
@@ -13,7 +13,11 @@ export class GetcontactsComponent implements OnInit {
 
   route: string | undefined;
 
-  public Contactdata:any = []
+  public Contactdata:any = [];
+
+  name:string="";
+
+  mail:string="";
 
   constructor(private router: Router , private http: HttpClient ) {
     this.route = router.url;
@@ -25,6 +29,8 @@ export class GetcontactsComponent implements OnInit {
         console.log("Contacts Data : - "+response.name);
       }
     });*/
+
+    //this.getUserName();
 
     this.getUserContacts();
   }
@@ -39,6 +45,11 @@ export class GetcontactsComponent implements OnInit {
       resultData: any)=>{
         this.Contactdata = resultData;
         console.log("Contact Details : - "+this.Contactdata);
+
+        for(let con of this.Contactdata)
+        {
+          this.name = con.user.username;
+        }
       });
   }
 
