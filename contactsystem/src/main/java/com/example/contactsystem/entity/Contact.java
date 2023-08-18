@@ -2,6 +2,7 @@ package com.example.contactsystem.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -14,7 +15,7 @@ public class Contact {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long sId ; 
+	private long contactId ; 
 	
 	private String name ; 
 	
@@ -27,7 +28,7 @@ public class Contact {
 	
 	private String work ;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	private User user ; 
 
 	public Contact() {
@@ -36,7 +37,7 @@ public class Contact {
 	}
 
 	public Contact(long sId, String name, String nickname, String email, String mobile, String work, User user) {
-		this.sId = sId;
+		this.contactId = sId;
 		this.name = name;
 		this.nickname = nickname;
 		this.email = email;
@@ -65,11 +66,11 @@ public class Contact {
 	}
 
 	public long getsId() {
-		return sId;
+		return contactId;
 	}
 
 	public void setsId(long sId) {
-		this.sId = sId;
+		this.contactId = sId;
 	}
 
 	public String getName() {
@@ -122,7 +123,7 @@ public class Contact {
 
 	@Override
 	public String toString() {
-		return "Contact [sId=" + sId + ", name=" + name + ", nickname=" + nickname + ", email=" + email + ", mobile="
+		return "Contact [sId=" + contactId + ", name=" + name + ", nickname=" + nickname + ", email=" + email + ", mobile="
 				+ mobile + ", work=" + work + ", user=" + user + "]";
 	}
 	

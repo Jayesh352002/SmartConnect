@@ -6,7 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -115,4 +117,23 @@ public class UserController {
 		
 	}
 	
+	@GetMapping(path = "/updatecontact/{Conid}")
+	public Contact updateContactData(@PathVariable long Conid)
+	{
+		Contact con = userService.getContacts(Conid);
+		return con ; 
+	}
+	
+	@PostMapping(path = "/updatecontact/{Conid}")
+	public String updateData(@RequestBody ContactDTO contactDTO , @PathVariable long Conid)
+	{
+		return userService.updateData(contactDTO,Conid);
+	}
+	
+	@DeleteMapping(path = "/updatecontact/{Conid}")
+	public String deleteData(@PathVariable long Conid)
+	{
+		userService.deleteData(Conid);
+		return "Success";
+	}
 }

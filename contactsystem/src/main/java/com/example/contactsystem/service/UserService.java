@@ -88,6 +88,50 @@ public class UserService {
 		return null ;
 		
 	}
+	
+	public Contact getContacts(long id)
+	{
+		Contact cons = contactRepo.getContactByContactId(id);
+		return cons ; 
+	}
+	
+	public String updateData(ContactDTO contactDTO , long id)
+	{
+		
+		Optional<Contact> opContact = contactRepo.findById(id);
+		
+		Contact con = new Contact(
+				contactDTO.getUserName(),
+				contactDTO.getNickName(),
+				contactDTO.getUserEmail(),
+				contactDTO.getUserMobile(),
+				contactDTO.getUserWork());
+		
+		
+		if(opContact.isPresent()) {
+			
+			Contact con1 = opContact.get();
+			
+			con1.setName(con.getName());
+			con1.setNickname(con.getNickname());
+			con1.setEmail(con.getEmail());
+			con1.setMobile(con.getMobile());
+			con1.setWork(con.getWork());
+			
+			contactRepo.save(con1);
+			
+			return"Success";
+		}
+		else {
+			return "Failure";
+		}
+	}
+	
+	public void deleteData(long id)
+	{
+		contactRepo.deleteById(id);
+
+	}
 
 	public String loginUsers(UserLoginDTO userLoginDTO) {
 		
