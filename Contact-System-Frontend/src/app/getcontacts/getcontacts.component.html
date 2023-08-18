@@ -1,4 +1,4 @@
-<app-contactnavbar></app-contactnavbar>
+<app-contactnavbar [username]="name"></app-contactnavbar>
 
 <div class="con-list">
   <div class="data" *ngFor="let con of Contactdata" (click)="edit(con.sId)">

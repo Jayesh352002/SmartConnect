@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
@@ -42,7 +42,7 @@ export class LoginComponent {
         else if(resultData == this.userEmail)
         {
           alert("Login Successfull");
-          this.router.navigate(['/addcontact']);
+          this.router.navigate(['/getcontact']);
           this.userEmail = "";
           this.userPassword = "";
         }

@@ -15,10 +15,12 @@ export class AddcontactComponent {
   userWork : string = "";
 
   @Input()
-  email:string="";
+  inputEmail:string="";
 
   @Input()
   userId:any=0;
+
+  str:any = "";
 
   constructor(private http: HttpClient )
   {
@@ -43,7 +45,7 @@ export class AddcontactComponent {
       this.http.post("http://localhost:8080/api/v1/user/addcontact",bodyData,{responseType: 'text'}).subscribe((resultData: any)=>
       {
           console.log(resultData);
-          console.log(this.email);
+          //console.log(this.email);
           alert("Contact Added Successfully");
           //this.router.navigateByUrl('/home');
 
@@ -55,4 +57,5 @@ export class AddcontactComponent {
       });
     }
   }
+
 }
