@@ -14,6 +14,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { UserdashboardComponent } from './userdashboard/userdashboard.component';
 import { GetcontactsComponent } from './getcontacts/getcontacts.component';
 import { ContactnavbarComponent } from './contactnavbar/contactnavbar.component';
+import { ContactformComponent } from './contactform/contactform.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ContactnavbarComponent } from './contactnavbar/contactnavbar.component'
     HomepageComponent,
     UserdashboardComponent,
     GetcontactsComponent,
-    ContactnavbarComponent
+    ContactnavbarComponent,
+    ContactformComponent
   ],
   imports: [
     BrowserModule,

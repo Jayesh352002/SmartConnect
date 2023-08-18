@@ -1,19 +1,10 @@
 <app-contactnavbar></app-contactnavbar>
 
-<div class="col-xl-3 col-sm-6 col-12">
-  <div class="card">
-    <div class="card-content">
-      <div class="card-body">
-        <div class="media d-flex">
-          <div class="media-body text-left">
-            <h3 class="success">Jayesh Bafna</h3>
-            <span>7841528289</span>
-          </div>
-          <div class="align-self-center">
-            <i class="icon-user success font-large-2 float-right"></i>
-          </div>
-        </div>
-      </div>
+<div class="con-list">
+  <div class="data" *ngFor="let con of Contactdata" (click)="edit(con.sId)">
+    <div class="media-body text-left">
+      <h3 class="success">{{ con.sId }}. {{ con.name }}</h3>
+      <span>{{ con.mobile }}</span>
     </div>
   </div>
 </div>

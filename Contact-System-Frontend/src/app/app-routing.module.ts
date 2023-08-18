@@ -5,6 +5,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { AddcontactComponent } from './addcontact/addcontact.component';
 import { GetcontactsComponent } from './getcontacts/getcontacts.component';
+import { ContactformComponent } from './contactform/contactform.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path:'getcontact',
     component:GetcontactsComponent
+  },
+  {
+    path:'update',
+    component:ContactformComponent
   }
 ];
 
