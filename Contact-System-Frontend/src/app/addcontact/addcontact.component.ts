@@ -33,6 +33,11 @@ export class AddcontactComponent {
     {
       alert("Please Enter Valid Input !!");
     }
+    else if(this.userMobile.toString().length!=10 )
+    {
+      console.log(this.userMobile.toString().length);
+      alert("Invalid Mobile !!");
+    }
     else
     {
       let bodyData = {

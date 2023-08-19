@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import {  Observable, throwError } from 'rxjs';
 import { Root } from '../model/contacts.model';
+import { NavbarService } from '../navbar.service';
 
 @Component({
   selector: 'app-getcontacts',
@@ -19,7 +20,7 @@ export class GetcontactsComponent implements OnInit {
 
   mail:string="";
 
-  constructor(private router: Router , private http: HttpClient ) {
+  constructor(private router: Router , private http: HttpClient , public nav: NavbarService ) {
     this.route = router.url;
   }
   ngOnInit(): void {
@@ -31,6 +32,8 @@ export class GetcontactsComponent implements OnInit {
     });*/
 
     //this.getUserName();
+
+    this.nav.hide();
 
     this.getUserContacts();
   }
