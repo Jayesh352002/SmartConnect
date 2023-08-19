@@ -29,6 +29,10 @@ export class RegisterComponent {
     {
       alert("Please Enter Valid Input !!");
     }
+    else if(this.userPassword.length<6)
+    {
+      alert("Password Length must be Greater than 6 !!! ");
+    }
     else
     {
       let bodyData = {
