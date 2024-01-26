@@ -8,6 +8,13 @@ Frontend - Angular <br>
 Backend - SprigBoot<br>
 Database - MySQL <br>
 
+# Features (CRUD Operations) 
+<br>
+1. Login/Register<br>
+2. Add Contacts<br>
+3. Get All Contacts<br>
+4. Update & Delete Contacts<br>
+
 <br><br>
 <b>Screenshots</b>
 <br><br>
